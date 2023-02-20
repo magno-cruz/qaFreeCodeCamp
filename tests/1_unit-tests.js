@@ -42,7 +42,7 @@ suite('Unit Tests', function () {
     test('#strictEqual, #notStrictEqual', function () {
       assert.notStrictEqual(6, '6');
       assert.strictEqual(6, 3 * 2);
-      assert.strictEqual(6 * '2', 12);
+      assert.notStrictEqual(6 * '2', 12);
       assert.notStrictEqual([1, 'a', {}], [1, 'a', {}]);
     });
     // #7
@@ -71,7 +71,7 @@ suite('Unit Tests', function () {
       assert.isAtLeast('world'.length, 5);
       assert.isAtLeast(2 * Math.random(), 0);
       assert.isBelow(5 % 2, 2);
-      assert.isBelow(2 / 3, 1);
+      assert.isAtLeast(2 / 3, 1);
     });
     // #10
     test('#approximately', function () {
@@ -88,7 +88,7 @@ suite('Unit Tests', function () {
     // #11
     test('#isArray, #isNotArray', function () {
       assert.isArray('isThisAnArray?'.split(''), 'String.prototype.split() returns an array');
-      assert.isNotArray([1, 2, 3].indexOf(2), 'indexOf returns a number');
+      assert.isArray([1, 2, 3].indexOf(2), 'indexOf returns a number');
     });
     // #12
     test('Array #include, #notInclude', function () {
@@ -107,7 +107,7 @@ suite('Unit Tests', function () {
     test('#isString, #isNotString', function () {
       assert.isNotString(Math.sin(Math.PI / 4), 'A float is not a string');
       assert.isString(process.env.PATH, 'An env variable is a string (or undefined)');
-      assert.isString(JSON.stringify({ type: 'object' }), 'JSON is a string');
+      assert.isNotString(JSON.stringify({ type: 'object' }), 'JSON is a string');
     });
     // #14
     test('String #include, #notInclude', function () {
@@ -118,7 +118,7 @@ suite('Unit Tests', function () {
     test('#match, #notMatch', function () {
       const regex = /^#\sname\:\s[\w\s]+,\sage\:\s\d+\s?$/;
       assert.match(formatPeople('John Doe', 35), regex);
-      assert.notMatch(formatPeople('Paul Smith III', 'twenty-four'), regex);
+      assert.match(formatPeople('Paul Smith III', 'twenty-four'), regex);
     });
   });
 
@@ -143,7 +143,7 @@ suite('Unit Tests', function () {
   suite('Objects', function () {
     // #16
     test('#property, #notProperty', function () {
-      assert.notProperty(myCar, 'wings', "Cars don't have wings");
+      assert.property(myCar, 'wings', "Cars don't have wings");
       assert.property(airlinePlane, 'engines', 'Planes have engines');
       assert.property(myCar, 'wheels', 'Cars have wheels');
     });

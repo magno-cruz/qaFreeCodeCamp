@@ -42,7 +42,7 @@ suite('Unit Tests', function () {
     test('#strictEqual, #notStrictEqual', function () {
       assert.notStrictEqual(6, '6');
       assert.strictEqual(6, 3 * 2);
-      assert.notStrictEqual(6 * '2', 12);
+      assert.strictEqual(6 * '2', 12);
       assert.notStrictEqual([1, 'a', {}], [1, 'a', {}]);
     });
     // #7
@@ -71,7 +71,7 @@ suite('Unit Tests', function () {
       assert.isAtLeast('world'.length, 5);
       assert.isAtLeast(2 * Math.random(), 0);
       assert.isBelow(5 % 2, 2);
-      assert.isAtLeast(2 / 3, 1);
+      assert.isBelow(2 / 3, 1);
     });
     // #10
     test('#approximately', function () {
@@ -107,7 +107,7 @@ suite('Unit Tests', function () {
     test('#isString, #isNotString', function () {
       assert.isNotString(Math.sin(Math.PI / 4), 'A float is not a string');
       assert.isString(process.env.PATH, 'An env variable is a string (or undefined)');
-      assert.isNotString(JSON.stringify({ type: 'object' }), 'JSON is a string');
+      assert.isString(JSON.stringify({ type: 'object' }), 'JSON is a string');
     });
     // #14
     test('String #include, #notInclude', function () {

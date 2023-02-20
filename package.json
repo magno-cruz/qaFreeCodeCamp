@@ -15,5 +15,17 @@
     "mocha": "9.0.3",
     "zombie": "6.1.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magno-cruz/qaFreeCodeCamp.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/magno-cruz/qaFreeCodeCamp/issues"
+  },
+  "homepage": "https://github.com/magno-cruz/qaFreeCodeCamp#readme"
 }

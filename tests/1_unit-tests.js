@@ -88,7 +88,7 @@ suite('Unit Tests', function () {
     // #11
     test('#isArray, #isNotArray', function () {
       assert.isArray('isThisAnArray?'.split(''), 'String.prototype.split() returns an array');
-      assert.isArray([1, 2, 3].indexOf(2), 'indexOf returns a number');
+      assert.isNotArray([1, 2, 3].indexOf(2), 'indexOf returns a number');
     });
     // #12
     test('Array #include, #notInclude', function () {
@@ -118,7 +118,7 @@ suite('Unit Tests', function () {
     test('#match, #notMatch', function () {
       const regex = /^#\sname\:\s[\w\s]+,\sage\:\s\d+\s?$/;
       assert.match(formatPeople('John Doe', 35), regex);
-      assert.match(formatPeople('Paul Smith III', 'twenty-four'), regex);
+      assert.notMatch(formatPeople('Paul Smith III', 'twenty-four'), regex);
     });
   });
 
@@ -143,7 +143,7 @@ suite('Unit Tests', function () {
   suite('Objects', function () {
     // #16
     test('#property, #notProperty', function () {
-      assert.property(myCar, 'wings', "Cars don't have wings");
+      assert.notProperty(myCar, 'wings', "Cars don't have wings");
       assert.property(airlinePlane, 'engines', 'Planes have engines');
       assert.property(myCar, 'wheels', 'Cars have wheels');
     });

@@ -74,7 +74,7 @@ suite('Functional Tests with Zombie.js', function () {
 
   suite('Headless browser', function () {
     test('should have a working "site" property', function() {
-      assert.isNotNull('http://127.0.0.1:3000');
+      assert.isNotNull(browser.site);
     });
   });
 
